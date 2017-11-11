@@ -1249,6 +1249,7 @@ GameObject:
   - component: {fileID: 942108154}
   - component: {fileID: 942108153}
   - component: {fileID: 942108157}
+  - component: {fileID: 942108158}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -1343,6 +1344,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86d6fe623c384142b54f4fffde1b9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: {fileID: 245727368804107972, guid: 9edc724c04f6897438d1ad1331b0c942, type: 2}
+  unPaused: {fileID: 245222230329642628, guid: 9edc724c04f6897438d1ad1331b0c942, type: 2}
+--- !u!114 &942108158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 942108152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e109f8a16e563164a82996dabd079aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: 9edc724c04f6897438d1ad1331b0c942, type: 2}
 --- !u!1 &943357260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,13 +1831,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 1259420560}
   m_HandleRect: {fileID: 1210212314}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 942108158}
+        m_MethodName: SetSfxLvl
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1034190890
@@ -1835,7 +1861,7 @@ GameObject:
   - component: {fileID: 1034190891}
   - component: {fileID: 1034190892}
   m_Layer: 5
-  m_Name: MenuSlider
+  m_Name: MusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1902,13 +1928,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 993525769}
   m_HandleRect: {fileID: 1257171694}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: -10
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: -10
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 942108158}
+        m_MethodName: SetMusicLvl
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1159634888
@@ -2898,7 +2935,8 @@ AudioSource:
   m_GameObject: {fileID: 1634587984}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243378574603006248, guid: 9edc724c04f6897438d1ad1331b0c942,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4fff99673a41e24439d527ad0bd6b569, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
@@ -3148,6 +3186,18 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 943357262}
+    - target: {fileID: 82877674615913320, guid: 774acf237890559469898491c93050d4,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243638999830789890, guid: ff80756ea20303b4a838a9ec708688fd,
+        type: 2}
+    - target: {fileID: 82750464294093096, guid: 774acf237890559469898491c93050d4,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243190427441612488, guid: ff80756ea20303b4a838a9ec708688fd,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 774acf237890559469898491c93050d4, type: 2}
   m_IsPrefabParent: 0

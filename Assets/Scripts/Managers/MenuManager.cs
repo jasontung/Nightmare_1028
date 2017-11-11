@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class MenuManager : MonoBehaviour {
     private Canvas canvas;
+    public AudioMixerSnapshot paused;
+    public AudioMixerSnapshot unPaused;
     private void Awake()
     {
         canvas = GetComponent<Canvas>();
@@ -21,14 +23,19 @@ public class MenuManager : MonoBehaviour {
     public void Pause()
     {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
-        //if(Time.timeScale == 0)
-        //{
-        //    Time.timeScale = 1;
-        //}
-        //else
-        //{
-        //    Time.timeScale = 0;
-        //}
+        LowPass();
+    }
+    
+    private void LowPass()
+    {
+        if(Time.timeScale == 0)
+        {
+            paused.TransitionTo(0.01f);
+        }
+        else
+        {
+            unPaused.TransitionTo(0.01f);
+        }
     }
 
     public void Quit()
